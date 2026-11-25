@@ -1,159 +1,176 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Filmon Nezif Abamecha</title>
+<meta name="author" content="Filmon Nezif Abamecha">
 <meta name="description" content="Filmon Nezif Abamecha: undergraduate researcher in robot navigation safety, efficient onboard perception and socially aware motion planning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #ffffff; --fg: #1d2330; --muted: #5b6474; --line: #e3e6eb;
-    --accent: #1f4e8c; --chip: #eef2f8; --todo: #b42318;
+  body { margin: 0; background: #ffffff; color: #000; font-family: 'Lato', Verdana, Helvetica, sans-serif; font-size: 14px; line-height: 1.45; }
+  a { color: #1772d0; text-decoration: none; }
+  a:hover, a:focus { color: #f09228; }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 24px 16px 40px; }
+  table { width: 100%; border: 0; border-spacing: 0; border-collapse: separate; }
+  td { vertical-align: middle; padding: 20px; }
+  .name { font-size: 32px; text-align: center; margin: 0 0 18px; font-weight: 400; }
+  h2 { font-size: 22px; font-weight: 400; margin: 0; }
+  .papertitle { font-size: 14px; font-weight: 700; }
+  .links { text-align: center; }
+  .photo { width: 100%; max-width: 200px; aspect-ratio: 1; border-radius: 50%; object-fit: cover; }
+  .photo-ph { width: 100%; max-width: 200px; aspect-ratio: 1; border-radius: 50%; background: #eef0f3; color: #888; display: grid; place-items: center; font-size: 13px; margin-left: auto; }
+  .thumb { width: 160px; height: 120px; border-radius: 4px; background: #f2f4f7; border: 1px solid #e3e6eb; color: #8a93a3; display: grid; place-items: center; font-size: 12px; text-align: center; padding: 6px; box-sizing: border-box; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+  tr.highlight { background: #ffffd0; }
+  .todo { color: #b42318; font-size: 12px; }
+  .muted { color: #555; }
+  ul.news { padding-left: 18px; margin: 8px 0 0; }
+  ul.news li { margin-bottom: 4px; }
+  .footer { font-size: 12px; text-align: right; color: #777; }
+  @media (max-width: 600px) {
+    td { padding: 12px 6px; }
+    .hdr td { display: block; width: 100% !important; }
+    .photo, .photo-ph { margin: 0 auto; max-width: 160px; }
+    .pub td.thumbcol { display: none; }
+    .pub td { width: 100% !important; }
   }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #12151b; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2a2f39;
-            --accent: #7fb0ff; --chip: #1c2330; --todo: #ff8a80; }
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--fg);
-         font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  header { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
-  .photo { width: 112px; height: 112px; border-radius: 50%; background: var(--chip);
-           display: grid; place-items: center; color: var(--muted); font-size: 13px; flex: none; object-fit: cover; }
-  h1 { font-size: 30px; margin: 0 0 4px; line-height: 1.2; }
-  .role { color: var(--muted); margin: 0 0 10px; }
-  .links { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 15px; }
-  h2 { font-size: 19px; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
-  p { margin: 0 0 12px; }
-  ul.plain { list-style: none; padding: 0; margin: 0; }
-  .pub { margin: 0 0 18px; }
-  .pub .title { font-weight: 600; }
-  .pub .meta { color: var(--muted); font-size: 15px; }
-  .me { font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-  .tag { font-size: 13px; padding: 2px 9px; border-radius: 999px; background: var(--chip); color: var(--fg); }
-  a.tag { color: var(--accent); }
-  .todo { color: var(--todo); font-size: 13px; }
-  .news li { display: grid; grid-template-columns: 88px 1fr; gap: 12px; margin-bottom: 8px; }
-  .news .date { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
-  .proj { margin-bottom: 16px; }
-  footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
-  @media (max-width: 520px) { .news li { grid-template-columns: 1fr; gap: 0; } h1 { font-size: 26px; } }
 </style>
 </head>
 <body>
-<main>
+<div class="wrap">
 
-<header>
-  <!-- TODO: add a photo at assets/photo.jpg and replace this div with:
-       <img class="photo" src="assets/photo.jpg" alt="Filmon Nezif Abamecha"> -->
-  <div class="photo" aria-hidden="true">photo</div>
-  <div>
-    <h1>Filmon Nezif Abamecha</h1>
-    <p class="role">Electrical Engineering Technology, Higher Colleges of Technology, Sharjah, UAE</p>
-    <div class="links">
-      <a href="mailto:filmonnezif@gmail.com">Email</a>
-      <a href="https://scholar.google.com/citations?user=qiLq92YAAAAJ">Google Scholar</a>
-      <a href="https://orcid.org/0009-0001-0545-6133">ORCID</a>
-      <a href="https://github.com/filmonnezif">GitHub</a>
+<!-- Header -->
+<table class="hdr"><tr>
+  <td style="width:63%">
+    <p class="name">Filmon Nezif Abamecha</p>
+    <p>I am an undergraduate researcher in Electrical Engineering Technology at the <a href="https://www.hct.ac.ae/">Higher Colleges of Technology</a> in Sharjah, UAE, graduating in August 2027.</p>
+    <p>I work on making robots and edge AI systems behave safely when conditions are not ideal: navigation stacks whose commands go stale, perception that has to fit on onboard hardware, and motion planning around people. I have worked with Dr Zakwan Skaf on aquaponics automation and edge AI, and with Dr Nur Siyam on Lexy, AI reading support for Arabic readers with dyslexia. I release code and data so my results can be reproduced.</p>
+    <p class="links">
+      <a href="mailto:filmonnezif@gmail.com">Email</a> &nbsp;/&nbsp;
+      <a href="papers/Filmon_Nezif_CV.pdf">CV</a> &nbsp;/&nbsp;
+      <a href="https://scholar.google.com/citations?user=qiLq92YAAAAJ">Scholar</a> &nbsp;/&nbsp;
+      <a href="https://orcid.org/0009-0001-0545-6133">ORCID</a> &nbsp;/&nbsp;
+      <a href="https://github.com/filmonnezif">GitHub</a> &nbsp;/&nbsp;
       <a href="https://www.linkedin.com/in/filmonnezif">LinkedIn</a>
-      <a href="papers/Filmon_Nezif_CV.pdf">CV (PDF)</a>
-    </div>
-  </div>
-</header>
+    </p>
+  </td>
+  <td style="width:37%">
+    <!-- TODO: add assets/photo.jpg and replace the div below with:
+         <a href="assets/photo.jpg"><img class="photo" src="assets/photo.jpg" alt="Filmon Nezif Abamecha"></a> -->
+    <div class="photo-ph" aria-hidden="true">photo</div>
+  </td>
+</tr></table>
 
-<h2>About</h2>
-<p>I am an undergraduate researcher at the Higher Colleges of Technology in Sharjah, graduating in August 2027. I work on making robots and edge AI systems that behave safely when conditions are not ideal: navigation stacks whose commands go stale, perception that has to fit on onboard hardware, and motion planning around people.</p>
-<p>I have done my research with Dr Zakwan Skaf (aquaponics automation and edge AI) and Dr Nur Siyam (Lexy, AI reading support for Arabic readers with dyslexia). I release code and data for my work so it can be reproduced.</p>
-<p><strong>Research interests:</strong> robot navigation safety under timing faults · efficient onboard perception · socially aware motion planning.</p>
+<!-- Research summary -->
+<table><tr><td>
+  <h2>Research</h2>
+  <p>I am interested in <strong>robot navigation safety under timing faults</strong>, <strong>efficient onboard perception</strong> and <strong>socially aware motion planning</strong>. Highlighted papers are the most representative.</p>
+</td></tr></table>
 
-<h2>News</h2>
-<ul class="plain news">
-  <li><span class="date">Nov 2026</span><span>Paper on timing faults in Nav2 command chains at ITT 2026 (Certificate of Recognition).</span></li>
-  <li><span class="date">2026</span><span>Edge AI compression paper accepted at ICSPIS 2026.</span></li>
-  <li><span class="date">2026</span><span>3rd place, Startups track, and 5th place, Pioneers track (WristEcho), UAE Hackathon 2026.</span></li>
-  <li><span class="date">Sep 2025</span><span>Aquaponics IoT automation paper published at ASET 2025.</span></li>
-  <li><span class="date">2025</span><span>Lexy: Microsoft Imagine Cup global semifinalist and 2nd place in the UAE.</span></li>
-</ul>
+<!-- Papers -->
+<table class="pub">
 
-<h2>Publications</h2>
-<ul class="plain">
-  <li class="pub">
-    <div class="title">Freshness Is a Pipeline Property: Testing Temporal Obligations in Nav2 Command Chains</div>
-    <div class="meta"><span class="me">F. Nezif</span> · <em>ITT 2026</em> · sole author</div>
-    <div class="tags">
-      <a class="tag" href="https://github.com/filmonnezif/freshness-nav2">Code + traces</a>
-      <span class="tag">PDF <span class="todo">(add papers/nav2-freshness-itt2026.pdf, or arXiv link when it clears)</span></span>
-    </div>
-  </li>
-  <li class="pub">
-    <div class="title">Edge AI Model Compression for Real-Time Plant Disease Detection: Toward Deployment in Aquaponics Systems</div>
-    <div class="meta"><span class="me">F. Nezif</span>, E. Y. Beyene, Y. Mekonen, W. Minhas, M. Saleh, Z. Skaf · <em>ICSPIS 2026</em></div>
-    <div class="tags">
-      <a class="tag" href="papers/edgeai-icspis2026.pdf">Accepted version (PDF)</a>
-      <span class="todo">Upload the PDF to papers/ with IEEE's copyright notice on page 1; add the IEEE Xplore link when live.</span>
-    </div>
-  </li>
-  <li class="pub">
-    <div class="title">Enhancing Aquaponics Efficiency through IoT Automation and Renewable Energy in Sustainable Agriculture</div>
-    <div class="meta">Z. Skaf, <span class="me">F. Nezif</span> · <em>ASET 2025</em>, September 2025</div>
-    <div class="tags">
-      <a class="tag" href="https://doi.org/10.1109/ASET66891.2025.11427897">DOI</a>
-    </div>
-  </li>
-</ul>
+  <tr class="highlight">
+    <td class="thumbcol" style="width:25%"><div class="thumb">add images/nav2.png</div></td>
+    <td style="width:75%">
+      <span class="papertitle">Freshness Is a Pipeline Property: Testing Temporal Obligations in Nav2 Command Chains</span><br>
+      <strong>Filmon Nezif</strong><br>
+      <em>ITT</em>, 2026 &nbsp;<span style="color:#c0392b">(Certificate of Recognition)</span><br>
+      <a href="https://github.com/filmonnezif/freshness-nav2">code + traces</a>
+      &nbsp;/&nbsp; <span class="todo">paper PDF or arXiv link</span>
+      <p>Fault injection and finite-trace monitoring for ROS 2 Jazzy / Nav2: does the command chain stop by a deadline, stay stopped and recover? 80 trials over 8 configurations and 16 scenarios, with raw traces released.</p>
+    </td>
+  </tr>
 
-<h2>Preprints and work in progress</h2>
-<ul class="plain">
-  <li class="pub">
-    <div class="title">Does Better Pedestrian Prediction Make a Safer Robot? A Predictor, Uncertainty and Planner Benchmark on Real Crowds</div>
-    <div class="meta"><span class="me">F. Nezif</span> · in preparation</div>
-    <div class="tags">
-      <a class="tag" href="https://github.com/filmonnezif/crowd-nav-matlab">Code</a>
-    </div>
-  </li>
-  <li class="pub">
-    <div class="title">Listen Before You Classify: A DSP Front End and an Adapted Classifier for Efficient, Reliable Sound Alerts on Wearables</div>
-    <div class="meta"><span class="me">F. Nezif</span> <span class="todo">[co-authors]</span> · in preparation</div>
-    <div class="tags">
-      <a class="tag" href="https://github.com/filmonnezif/wristecho-dsp-frontend">Code</a>
-    </div>
-  </li>
-</ul>
+  <tr class="highlight">
+    <td class="thumbcol" style="width:25%"><div class="thumb">add images/crowdnav.png</div></td>
+    <td style="width:75%">
+      <span class="papertitle">Does Better Pedestrian Prediction Make a Safer Robot? A Predictor, Uncertainty and Planner Benchmark on Real Crowds</span><br>
+      <strong>Filmon Nezif</strong><br>
+      <em>In preparation</em><br>
+      <a href="https://github.com/filmonnezif/crowd-nav-matlab">code</a>
+      <p>Seven trajectory predictors, conformal uncertainty, space-time A* and three controllers, evaluated in 23 configurations on 120 ETH/UCY episodes. Space-time A* with MPC had 54% fewer contacts than A* with pure pursuit, and learned predictors were no safer than constant velocity.</p>
+    </td>
+  </tr>
 
-<h2>Selected projects</h2>
-<div class="proj">
-  <strong>Crowd navigation among real pedestrians</strong> · <a href="https://github.com/filmonnezif/crowd-nav-matlab">repo</a><br>
-  A MATLAB navigation stack with seven trajectory predictors, conformal uncertainty, space-time A* and pure pursuit, DWA and MPC control, evaluated in 23 configurations on 120 ETH/UCY episodes. Space-time A* with MPC had 54% fewer contacts than A* with pure pursuit, and learned predictors were no safer than constant velocity.
+  <tr>
+    <td class="thumbcol" style="width:25%"><div class="thumb">add images/edgeai.png</div></td>
+    <td style="width:75%">
+      <span class="papertitle">Edge AI Model Compression for Real-Time Plant Disease Detection: Toward Deployment in Aquaponics Systems</span><br>
+      <strong>Filmon Nezif</strong>, E. Y. Beyene, Y. Mekonen, W. Minhas, M. Saleh, Z. Skaf<br>
+      <em>ICSPIS</em>, 2026<br>
+      <a href="papers/edgeai-icspis2026.pdf">accepted version</a> <span class="todo">(upload PDF with IEEE notice)</span>
+      <p>MobileNetV2 on a Raspberry Pi 4, compressed 14.5&times; to 612.5 KB with 1.8 ms latency at 1.8 W while keeping 94.0% accuracy.</p>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="thumbcol" style="width:25%"><div class="thumb">add images/wristecho.png</div></td>
+    <td style="width:75%">
+      <span class="papertitle">Listen Before You Classify: A DSP Front End and an Adapted Classifier for Efficient, Reliable Sound Alerts on Wearables</span><br>
+      <strong>Filmon Nezif</strong> <span class="todo">[co-authors]</span><br>
+      <em>In preparation</em><br>
+      <a href="https://github.com/filmonnezif/wristecho-dsp-frontend">code</a>
+      <p>Smartwatch sound alerts for Deaf users. A DSP wake-up front end detected 13 points more than YAMNet at the same false-alarm rate and kept the classifier asleep 93% of the time.</p>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="thumbcol" style="width:25%"><div class="thumb">add images/aquaponics.png</div></td>
+    <td style="width:75%">
+      <span class="papertitle">Enhancing Aquaponics Efficiency through IoT Automation and Renewable Energy in Sustainable Agriculture</span><br>
+      Z. Skaf, <strong>Filmon Nezif</strong><br>
+      <em>ASET</em>, 2025<br>
+      <a href="https://doi.org/10.1109/ASET66891.2025.11427897">paper</a>
+      <p>IoT automation and renewable power for an aquaponics system.</p>
+    </td>
+  </tr>
+
+</table>
+
+<!-- Projects -->
+<table><tr><td>
+  <h2>Projects</h2>
+</td></tr></table>
+<table class="pub">
+  <tr>
+    <td class="thumbcol" style="width:25%"><div class="thumb">add images/lexy.png</div></td>
+    <td style="width:75%">
+      <span class="papertitle">Lexy</span> &nbsp;<a href="https://lexy-ai.com">lexy-ai.com</a><br>
+      Team lead and lead engineer, with Dr Nur Siyam<br>
+      <p>Arabic-first AI reading support for children with dyslexia: text simplification, diacritisation and speech-based reading assessment. Microsoft Imagine Cup 2025 global semifinalist and 2nd place in the UAE.</p>
+    </td>
+  </tr>
+</table>
+
+<!-- News + awards -->
+<table><tr><td>
+  <h2>News</h2>
+  <ul class="news">
+    <li><strong>Nov 2026</strong>: Nav2 timing-fault paper at ITT 2026, with a Certificate of Recognition.</li>
+    <li><strong>2026</strong>: Edge AI compression paper accepted at ICSPIS 2026.</li>
+    <li><strong>2026</strong>: 3rd place, Startups track, and 5th place, Pioneers track (WristEcho), UAE Hackathon.</li>
+    <li><strong>Sep 2025</strong>: Aquaponics IoT paper published at ASET 2025.</li>
+    <li><strong>2025</strong>: Lexy: Microsoft Imagine Cup global semifinalist, 2nd in the UAE.</li>
+  </ul>
+</td></tr></table>
+
+<table><tr><td>
+  <h2>Awards</h2>
+  <ul class="news">
+    <li>Microsoft Imagine Cup 2025: global semifinalist; 2nd place, UAE national final</li>
+    <li>UAE Hackathon (TDRA): 3rd 2024, 2nd 2025, 3rd Startups track and 5th Pioneers track 2026</li>
+    <li>HCT Skills Competition, Electronics: 1st place, 2024 and 2026</li>
+  </ul>
+</td></tr></table>
+
+<table><tr><td class="footer">
+  Design adapted from <a href="https://github.com/jonbarron/jonbarron.github.io">Jon Barron's website template</a>. Last updated November 2026.
+</td></tr></table>
+
 </div>
-<div class="proj">
-  <strong>Nav2 timing-fault harness</strong> · <a href="https://github.com/filmonnezif/freshness-nav2">repo</a><br>
-  Fault injection and finite-trace monitoring for ROS 2 Jazzy / Nav2 command chains: does the chain stop by a deadline, stay stopped and recover? 80 trials over 8 configurations and 16 scenarios, with raw traces released.
-</div>
-<div class="proj">
-  <strong>Edge plant-disease detection</strong><br>
-  MobileNetV2 on a Raspberry Pi 4, compressed 14.5× to 612.5 KB with 1.8 ms latency at 1.8 W while keeping 94.0% accuracy.
-</div>
-<div class="proj">
-  <strong>WristEcho</strong> · <a href="https://github.com/filmonnezif/wristecho-dsp-frontend">repo</a><br>
-  Smartwatch sound alerts for Deaf users. A DSP wake-up front end detected 13 points more than YAMNet at the same false-alarm rate and kept the classifier asleep 93% of the time.
-</div>
-<div class="proj">
-  <strong>Lexy</strong> · <a href="https://lexy-ai.com">lexy-ai.com</a><br>
-  Arabic-first AI reading support for children with dyslexia: text simplification, diacritisation and speech-based reading assessment. Team lead and lead engineer.
-</div>
-
-<h2>Awards</h2>
-<ul>
-  <li>Microsoft Imagine Cup 2025: global semifinalist; 2nd place, UAE national final</li>
-  <li>UAE Hackathon (TDRA): 3rd 2024, 2nd 2025, 3rd Startups track and 5th Pioneers track 2026</li>
-  <li>HCT Skills Competition, Electronics: 1st place, 2024 and 2026</li>
-</ul>
-
-<footer>Last updated November 2026.</footer>
-</main>
 </body>
 </html>
